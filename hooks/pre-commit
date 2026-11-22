@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pre-commit check: blocks a commit with the wrong author email or with a .env file.
+# Switch it on once per clone:  git config core.hooksPath hooks
+
+email=$(git var GIT_AUTHOR_IDENT | sed -E 's/.*<(.*)>.*/\1/')
+case "$email" in
+  *@users.noreply.github.com) ;;
+  *) echo "pre-commit: author email '$email' is not a GitHub noreply address. Commit blocked." >&2; exit 1 ;;
+esac
+
+if git diff --cached --name-only --diff-filter=ACMR | grep -E '(^|/)\.env(\..*)?$' >/dev/null; then
+  echo "pre-commit: a .env file is staged. Commit blocked." >&2
+  exit 1
+fi
