@@ -1,6 +1,6 @@
 ## Hi, I'm Igor
 
-I'm an AI engineer in Helsinki. I work as a research assistant in AI engineering at the University of Helsinki, and I'm doing my master's in Computer Science there (finishing in 2027).
+I'm an AI engineer in Helsinki. I'm doing my master's in Computer Science at the University of Helsinki (finishing in 2027).
 
 ### Before AI
 
